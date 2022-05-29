@@ -1,9 +1,11 @@
 import React from "react";
+import banner1 from "../../../images/banner1.jpg";
+import "./Banner.css";
 
 const Banner = () => {
   return (
     <div>
-      <h2>This is About</h2>
+      <img src={banner1} class="b1" />
     </div>
   );
 };

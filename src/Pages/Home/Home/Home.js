@@ -11,6 +11,8 @@ const Home = () => {
       <Tools></Tools>
       <Summary></Summary>
       <Reviews></Reviews>
+      <h2>section5</h2>
+      <h2>section6</h2>
     </div>
   );
 };
