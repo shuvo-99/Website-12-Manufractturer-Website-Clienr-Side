@@ -1,6 +1,6 @@
 import React from "react";
 
-const Footer = () => {
+const Tools = () => {
   return (
     <div>
       <h2>This is About</h2>
@@ -8,4 +8,4 @@ const Footer = () => {
   );
 };
 
-export default Footer;
+export default Tools;

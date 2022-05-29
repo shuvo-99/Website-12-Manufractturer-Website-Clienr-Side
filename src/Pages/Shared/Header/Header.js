@@ -8,19 +8,19 @@ const Navbar = () => {
         <Link to="/">Home</Link>
       </li>
       <li>
-        <Link to="/blogs">Blogs</Link>
-      </li>
-      {/* <li>
-        <Link to="/review">Review</Link>
+        <Link to="/blog">Blogs</Link>
       </li>
       <li>
-        <Link to="/contact">Contact</Link>
+        <Link to="/myportfolio">My Portfolio</Link>
+      </li>
+      {/* <li>
+        <Link to="/">Login</Link>
       </li>
       <li>
         <Link to="/about">About</Link>
-      </li>
-      <li> */}
-        <Link to="/login">Login</Link>
+      </li> */}
+      <li>
+        <Link to="/signin">Login</Link>
       </li>
     </>
   );
