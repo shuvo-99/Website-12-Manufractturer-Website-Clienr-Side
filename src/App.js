@@ -7,6 +7,7 @@ import MyPortfoilo from "./Pages/MyPortfolio/MyPortfolio";
 import Signin from "./Pages/Login/Signin/Signin";
 import Footer from "./Pages/Shared/Footer/Footer";
 import Home from "./Pages/Home/Home/Home";
+import Register from "./Pages/Login/Register/Register";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="blog" element={<Blog />} />
         <Route path="signin" element={<Signin />} />
+        <Route path="register" element={<Register />} />
         <Route path="myportfolio" element={<MyPortfoilo />} />
       </Routes>
       <Footer></Footer>

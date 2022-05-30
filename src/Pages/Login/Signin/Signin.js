@@ -10,7 +10,8 @@ import { Link, useNavigate, useLocation } from "react-router-dom";
 // import useToken from "../../hooks/useToken";
 
 const Signin = () => {
-  const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
+  const [signInWithGoogle, googleUser, googleLoading, googleError] =
+    useSignInWithGoogle(auth);
   const {
     register,
     formState: { errors },
@@ -25,19 +26,19 @@ const Signin = () => {
   let from = location.state?.from?.pathname || "/";
 
   useEffect(() => {
-    if (user || gUser) {
+    if (user || googleUser) {
       navigate(from, { replace: true });
     }
-  }, [user, gUser, from, navigate]);
+  }, [user, googleUser, from, navigate]);
 
-  if (loading || gLoading) {
+  if (loading || googleLoading) {
     return <Loading></Loading>;
   }
 
-  if (error || gError) {
+  if (error || googleError) {
     signInError = (
       <p className="text-red-500">
-        <small>{error?.message || gError?.message}</small>
+        <small>{error?.message || googleError?.message}</small>
       </p>
     );
   }
@@ -126,8 +127,8 @@ const Signin = () => {
           </form>
           <p>
             <small>
-              New to Doctors Portal{" "}
-              <Link className="text-primary" to="/signup">
+              New to Anvo Tools and Machineries?{" "}
+              <Link className="text-primary" to="/register">
                 Create New Account
               </Link>
             </small>

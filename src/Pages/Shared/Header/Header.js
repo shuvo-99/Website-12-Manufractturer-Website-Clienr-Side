@@ -22,12 +22,30 @@ const Navbar = () => {
       <li>
         <Link to="/myportfolio">My Portfolio</Link>
       </li>
-      {/* <li>
-        <Link to="/">Login</Link>
-      </li>
       <li>
-        <Link to="/about">About</Link>
-      </li> */}
+        {/* {user && (
+          <>
+            
+
+            <Nav.Link as={Link} to="manageitem">
+              Manage Item
+            </Nav.Link>
+
+            
+
+            <Nav.Link as={Link} to="additem">
+              Add Item
+            </Nav.Link>
+
+            
+
+            <Nav.Link as={Link} to="myitem">
+              My Item
+            </Nav.Link>
+          </>
+        )} */}
+      </li>
+
       <li>
         {user ? (
           <button className="btn btn-ghost" onClick={logout}>
