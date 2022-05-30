@@ -3,8 +3,9 @@ import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { Link, useParams } from "react-router-dom";
 import auth from "../../firebase.init";
+import { toast } from "react-toastify";
 
-const Purchase = ({ products, setProducts }) => {
+const Purchase = ({}) => {
   const { toolID } = useParams();
   const [tool, settool] = useState({});
   const [user, loading, error] = useAuthState(auth);
@@ -17,6 +18,37 @@ const Purchase = ({ products, setProducts }) => {
       .then((res) => res.json())
       .then((data) => settool(data));
   }, []);
+
+  const handleBooking = (event) => {
+    event.preventDefault();
+    const quantity = event.target.quantity.value;
+    const order = {
+      orderId: tool._id,
+      orderItem: tool.name,
+      quantity,
+      price: quantity * tool.price,
+      email: user.email,
+      name: user.displayName,
+      phone: event.target.phone.value,
+      address: event.target.address.value,
+    };
+
+    fetch("http://localhost:5000/order", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(order),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.success) {
+          toast(`Order is Submitted`);
+        } else {
+          toast.error(`Order is not submitted`);
+        }
+      });
+  };
 
   const handleRestockItems = (event) => {
     //   event.preventDefault();
@@ -46,7 +78,7 @@ const Purchase = ({ products, setProducts }) => {
       <div className="card w-96 bg-base-100 shadow-xl ">
         <h1 className="text-center text-3xl">Order for: {tool.name}</h1>
         <div className="card-body">
-          <form>
+          <form onSubmit={handleBooking}>
             <div className="form-control w-full max-w-xs">
               <label className="label">
                 <span className="label-text">Username</span>
@@ -80,8 +112,8 @@ const Purchase = ({ products, setProducts }) => {
                 id="quantity"
                 name="quantity"
                 className="input input-bordered w-full max-w-xs"
-                // min={tool.minQuantity}
-                // max={tool.availableQuantity}
+                min={tool.minQuantity}
+                max={tool.availableQuantity}
               />
             </div>
             <div className="form-control w-full max-w-xs">
@@ -104,9 +136,13 @@ const Purchase = ({ products, setProducts }) => {
                 className="input input-bordered w-full max-w-xs"
               />
             </div>
+            <br />
+            <input
+              type="submit"
+              value="Submit"
+              className="btn btn-secondary w-full max-w-xs"
+            />
           </form>
-
-          <button className="btn btn-outline">Continue with Google</button>
         </div>
       </div>
     </div>
