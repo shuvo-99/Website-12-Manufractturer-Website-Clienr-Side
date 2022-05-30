@@ -23,7 +23,7 @@ const Tool = ({ tool }) => {
         <p>Price: Tk. {price}</p>
         <p>{description}</p>
         <div className="card-actions">
-          <button className="btn btn-primary">Buy Now</button>
+          <button className="btn btn-primary">Order Now</button>
         </div>
       </div>
     </div>
