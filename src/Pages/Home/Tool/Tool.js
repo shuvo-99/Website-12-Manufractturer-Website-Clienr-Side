@@ -1,6 +1,7 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
-const Tool = ({ tool }) => {
+const Tool = ({ tool, setProducts }) => {
   const {
     _id,
     name,
@@ -11,6 +12,11 @@ const Tool = ({ tool }) => {
     availableQuantity,
   } = tool;
 
+  const navigate = useNavigate();
+
+  // const navigateToOrder = (id) => {
+  //   navigate(`/tool/${id}`);
+  // };
   return (
     <div className="card w-96 bg-base-100 shadow-xl">
       <figure className="px-10 pt-10">
@@ -22,9 +28,19 @@ const Tool = ({ tool }) => {
         <p>Available Quantity: {availableQuantity}</p>
         <p>Price: Tk. {price}</p>
         <p>{description}</p>
-        <div className="card-actions">
-          <button className="btn btn-primary">Order Now</button>
+        <div className="card-actions justify-center">
+          <label
+            htmlFor="order-modal"
+            // disabled={slots.length === 0}
+            onClick={() => setProducts(tool)}
+            className="btn btn-sm btn-secondary text-white uppercase bg-gradient-to-r from-secondary to-primary"
+          >
+            Order
+          </label>
         </div>
+        {/* <div className="card-actions">
+          <button className="btn btn-primary">Order Now</button>
+        </div> */}
       </div>
     </div>
   );

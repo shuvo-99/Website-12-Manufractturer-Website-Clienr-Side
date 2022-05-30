@@ -21,7 +21,9 @@ const Register = () => {
 
   const [updateProfile, updating, updateError] = useUpdateProfile(auth);
 
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
+  const location = useLocation();
+  let from = location.state?.from?.pathname || "/";
 
   let signInError;
 
@@ -41,13 +43,13 @@ const Register = () => {
 
   if (user || gUser) {
     console.log(user || gUser);
+    navigate(from, { replace: true });
   }
 
   const onSubmit = async (data) => {
     await createUserWithEmailAndPassword(data.email, data.password);
     await updateProfile({ displayName: data.name });
     console.log("update done");
-    // navigate("/appointment");
   };
   return (
     <div className="flex h-screen justify-center items-center">

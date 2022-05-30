@@ -10,28 +10,42 @@ import Register from "./Pages/Login/Register/Register";
 import Dashboard from "./Pages/Dashboard/Dashboard";
 import RequireAuth from "./Pages/Login/RequiredAuth/RequiredAuth";
 import NotFound from "./Pages/Shared/NotFound/NotFound";
+import Order from "./Pages/Order/Order";
 
 function App() {
   return (
-    <div className="max-w-7xl mx-auto ">
-      <Navbar></Navbar>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="blog" element={<Blog />} />
-        <Route path="signin" element={<Signin />} />
-        <Route path="register" element={<Register />} />
-        <Route path="myportfolio" element={<MyPortfoilo />} />
-        <Route
-          path="dashbaord"
-          element={
-            <RequireAuth>
-              <Dashboard></Dashboard>
-            </RequireAuth>
-          }
-        ></Route>
-        <Route path="*" element={<NotFound></NotFound>}></Route>
-      </Routes>
-      <Footer></Footer>
+    <div>
+      <div className="max-w-7xl mx-auto ">
+        <Navbar></Navbar>
+        <Routes>
+          <Route
+            path="/dashboard"
+            element={
+              <RequireAuth>
+                <Dashboard></Dashboard>
+              </RequireAuth>
+            }
+          ></Route>
+
+          {/* <Route
+            path="/tool/:toolID"
+            element={
+              <RequireAuth>
+                <Order></Order>
+              </RequireAuth>
+            }
+          ></Route> */}
+          <Route path="/" element={<Home />} />
+          <Route path="blog" element={<Blog />} />
+          <Route path="signin" element={<Signin />} />
+          <Route path="register" element={<Register />} />
+          <Route path="myportfolio" element={<MyPortfoilo />} />
+          <Route path="*" element={<NotFound></NotFound>}></Route>
+        </Routes>
+      </div>
+      <div>
+        <Footer></Footer>
+      </div>
     </div>
   );
 }
