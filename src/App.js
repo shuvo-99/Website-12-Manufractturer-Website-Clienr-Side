@@ -12,6 +12,10 @@ import RequireAuth from "./Pages/Login/RequiredAuth/RequiredAuth";
 import NotFound from "./Pages/Shared/NotFound/NotFound";
 import Order from "./Pages/Order/Order";
 import Purchase from "./Pages/Purchase/Purchase";
+import Addreview from "./Pages/Dashboard/Addreview";
+import Myorders from "./Pages/Dashboard/Myorders";
+import Myprofile from "./Pages/Dashboard/Myprofile";
+import DashboardPage from "./Pages/Dashboard/DashboardPage";
 
 function App() {
   return (
@@ -20,13 +24,43 @@ function App() {
         <Navbar></Navbar>
         <Routes>
           <Route
-            path="/dashboard"
+            path="dashboard"
             element={
               <RequireAuth>
-                <Dashboard></Dashboard>
+                <Dashboard />
               </RequireAuth>
             }
-          ></Route>
+          >
+            <Route index element={<DashboardPage></DashboardPage>}></Route>
+            <Route path="addreview" element={<Addreview></Addreview>}></Route>
+            <Route path="myorder" element={<Myorders></Myorders>}></Route>
+            <Route path="myprofile" element={<Myprofile></Myprofile>}></Route>
+            {/* <Route path="payment/:id" element={<Payment></Payment>}></Route>
+            <Route
+              path="users"
+              element={
+                <RequireAdmin>
+                  <Users></Users>
+                </RequireAdmin>
+              }
+            ></Route>
+            <Route
+              path="addDoctor"
+              element={
+                <RequireAdmin>
+                  <AddDoctor></AddDoctor>
+                </RequireAdmin>
+              }
+            ></Route>
+            <Route
+              path="manageDoctor"
+              element={
+                <RequireAdmin>
+                  <ManageDoctors></ManageDoctors>
+                </RequireAdmin>
+              }
+            ></Route> */}
+          </Route>
 
           <Route
             path="/tool/:toolID"

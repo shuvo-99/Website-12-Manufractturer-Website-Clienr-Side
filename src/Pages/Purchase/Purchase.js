@@ -19,7 +19,7 @@ const Purchase = ({}) => {
       .then((data) => settool(data));
   }, []);
 
-  const handleBooking = (event) => {
+  const handleorder = (event) => {
     event.preventDefault();
     const quantity = event.target.quantity.value;
     const order = {
@@ -78,13 +78,13 @@ const Purchase = ({}) => {
       <div className="card w-96 bg-base-100 shadow-xl ">
         <h1 className="text-center text-3xl">Order for: {tool.name}</h1>
         <div className="card-body">
-          <form onSubmit={handleBooking}>
+          <form onSubmit={handleorder}>
             <div className="form-control w-full max-w-xs">
               <label className="label">
                 <span className="label-text">Username</span>
               </label>
               <input
-                type="email"
+                type="text"
                 disabled
                 value={user?.displayName || ""}
                 className="input input-bordered w-full max-w-xs"

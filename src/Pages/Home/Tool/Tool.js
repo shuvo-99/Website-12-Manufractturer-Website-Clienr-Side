@@ -29,7 +29,7 @@ const Tool = ({ tool, setProducts }) => {
         <h2 className="card-title">{name}</h2>
         <p>Minimum Quantity: {minQuantity}</p>
         <p>Available Quantity: {availableQuantity}</p>
-        <p>Price: Tk. {price}</p>
+        <p>Price: Tk. {price} (per peice)</p>
         <p>{description}</p>
         <div className="card-actions justify-center">
           {/* <label
