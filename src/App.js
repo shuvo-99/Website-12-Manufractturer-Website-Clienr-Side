@@ -21,7 +21,7 @@ function App() {
         <Route path="register" element={<Register />} />
         <Route path="myportfolio" element={<MyPortfoilo />} />
         <Route
-          path="/dashbaord"
+          path="dashbaord"
           element={
             <RequireAuth>
               <Dashboard></Dashboard>
