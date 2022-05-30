@@ -7,7 +7,7 @@ const Tools = () => {
   const [products, setProducts] = useState(null);
 
   useEffect(() => {
-    fetch("http://localhost:5000/tool")
+    fetch("https://cryptic-island-49666.herokuapp.com/tool")
       .then((res) => res.json())
       .then((data) => setTools(data));
   }, []);

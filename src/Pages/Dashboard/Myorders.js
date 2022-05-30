@@ -8,7 +8,7 @@ const Myorders = () => {
   const [user] = useAuthState(auth);
 
   useEffect(() => {
-    fetch("http://localhost:5000/order")
+    fetch("https://cryptic-island-49666.herokuapp.com/order")
       .then((res) => res.json())
       .then((data) => setorders(data));
   }, []);
@@ -16,7 +16,7 @@ const Myorders = () => {
   // const handleDelete = (id) => {
   //   const proceed = window.confirm("Are you sure?");
   //   if (proceed) {
-  //     const url = `http://localhost:5000/order`;
+  //     const url = `https://cryptic-island-49666.herokuapp.com/order`;
   //     fetch(url, {
   //       method: "DELETE",
   //     })

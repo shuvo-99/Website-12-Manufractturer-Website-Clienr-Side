@@ -12,7 +12,7 @@ const Purchase = ({}) => {
   // const { _id, name, minQuantity, availableQuantity } = products;
 
   useEffect(() => {
-    const url = `http://localhost:5000/tool/${toolID}`;
+    const url = `https://cryptic-island-49666.herokuapp.com/tool/${toolID}`;
 
     fetch(url)
       .then((res) => res.json())
@@ -33,7 +33,7 @@ const Purchase = ({}) => {
       address: event.target.address.value,
     };
 
-    fetch("http://localhost:5000/order", {
+    fetch("https://cryptic-island-49666.herokuapp.com/order", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -55,7 +55,7 @@ const Purchase = ({}) => {
     // const quantity = event.target.quantity.value;
     // const RestockItem = { quantity };
     // send data to the server
-    //   const url = `http://localhost:5000/tool/${toolID}`;
+    //   const url = `https://cryptic-island-49666.herokuapp.com/tool/${toolID}`;
     //   fetch(url, {
     //     method: "PUT",
     //     headers: {
