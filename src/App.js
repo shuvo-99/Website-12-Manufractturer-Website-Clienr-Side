@@ -1,4 +1,3 @@
-import logo from "./logo.svg";
 import "./App.css";
 import Navbar from "./Pages/Shared/Header/Header";
 import { Route, Routes } from "react-router-dom";
@@ -8,6 +7,8 @@ import Signin from "./Pages/Login/Signin/Signin";
 import Footer from "./Pages/Shared/Footer/Footer";
 import Home from "./Pages/Home/Home/Home";
 import Register from "./Pages/Login/Register/Register";
+import Dashboard from "./Pages/Dashboard/Dashboard";
+import RequireAuth from "./Pages/Login/RequiredAuth/RequiredAuth";
 
 function App() {
   return (
@@ -19,6 +20,14 @@ function App() {
         <Route path="signin" element={<Signin />} />
         <Route path="register" element={<Register />} />
         <Route path="myportfolio" element={<MyPortfoilo />} />
+        <Route
+          path="/dashbaord"
+          element={
+            <RequireAuth>
+              <Dashboard></Dashboard>
+            </RequireAuth>
+          }
+        ></Route>
       </Routes>
       <Footer></Footer>
     </div>

@@ -1,7 +1,7 @@
 import React from "react";
 
 const Review = ({ review }) => {
-  console.log(review);
+  // console.log(review);
   const { name, image, rating, reviews } = review;
   // const navigate = useNavigate();
 
