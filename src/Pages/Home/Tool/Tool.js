@@ -1,5 +1,7 @@
 import React from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
 import { useNavigate } from "react-router-dom";
+import auth from "../../../firebase.init";
 
 const Tool = ({ tool, setProducts }) => {
   const {
@@ -13,10 +15,11 @@ const Tool = ({ tool, setProducts }) => {
   } = tool;
 
   const navigate = useNavigate();
+  const [user] = useAuthState(auth);
 
-  // const navigateToOrder = (id) => {
-  //   navigate(`/tool/${id}`);
-  // };
+  const navigateToPurchase = (id) => {
+    navigate(`/tool/${id}`);
+  };
   return (
     <div className="card w-96 bg-base-100 shadow-xl">
       <figure className="px-10 pt-10">
@@ -29,14 +32,21 @@ const Tool = ({ tool, setProducts }) => {
         <p>Price: Tk. {price}</p>
         <p>{description}</p>
         <div className="card-actions justify-center">
-          <label
+          {/* <label
             htmlFor="order-modal"
             // disabled={slots.length === 0}
             onClick={() => setProducts(tool)}
             className="btn btn-sm btn-primary text-white uppercase "
           >
             Order
-          </label>
+          </label> */}
+          <a
+            href="#"
+            onClick={() => navigateToPurchase(_id)}
+            className="btn btn-warning"
+          >
+            Order Now
+          </a>
         </div>
       </div>
     </div>

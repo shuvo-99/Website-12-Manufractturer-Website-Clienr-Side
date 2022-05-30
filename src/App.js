@@ -11,6 +11,7 @@ import Dashboard from "./Pages/Dashboard/Dashboard";
 import RequireAuth from "./Pages/Login/RequiredAuth/RequiredAuth";
 import NotFound from "./Pages/Shared/NotFound/NotFound";
 import Order from "./Pages/Order/Order";
+import Purchase from "./Pages/Purchase/Purchase";
 
 function App() {
   return (
@@ -27,14 +28,14 @@ function App() {
             }
           ></Route>
 
-          {/* <Route
+          <Route
             path="/tool/:toolID"
             element={
               <RequireAuth>
-                <Order></Order>
+                <Purchase></Purchase>
               </RequireAuth>
             }
-          ></Route> */}
+          ></Route>
           <Route path="/" element={<Home />} />
           <Route path="blog" element={<Blog />} />
           <Route path="signin" element={<Signin />} />

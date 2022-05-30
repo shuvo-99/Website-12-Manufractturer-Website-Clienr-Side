@@ -6,7 +6,7 @@ const BookingModal = ({ products, setProducts }) => {
   const { _id, name, minQuantity, availableQuantity } = products;
   const [user, loading, error] = useAuthState(auth);
 
-  const handleBooking = (event) => {
+  const handleOrder = (event) => {
     event.preventDefault();
     // const slot = event.target.slot.value;
     // console.log(_id, name, slot);
@@ -30,7 +30,7 @@ const BookingModal = ({ products, setProducts }) => {
             Booking for: {name}
           </h3>
           <form
-            onSubmit={handleBooking}
+            onSubmit={handleOrder}
             className="grid grid-cols-1 gap-3 justify-items-center mt-2"
           >
             {/* <input type="text" disabled value={format(date, 'PP')} className="input input-bordered w-full max-w-xs" /> */}
