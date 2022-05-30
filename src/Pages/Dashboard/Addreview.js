@@ -7,7 +7,7 @@ const Addreview = () => {
   const { register, handleSubmit } = useForm();
   const [user, loading, error] = useAuthState(auth);
 
-  const handlereview = (data) => {
+  const onSubmit = (data) => {
     console.log(data);
     const url = `http://localhost:5000/review`;
     fetch(url, {
@@ -28,16 +28,16 @@ const Addreview = () => {
       <div className="card w-96 bg-base-100 shadow-xl ">
         <h1 className="text-center text-3xl">Add a Review</h1>
         <div className="card-body">
-          <form onSubmit={handlereview}>
+          <form onSubmit={handleSubmit(onSubmit)}>
             <div className="form-control w-full max-w-xs">
               <label className="label">
                 <span className="label-text">User name</span>
               </label>
               <input
                 type="text"
-                disabled
-                value={user?.displayName || ""}
+                // value={user?.displayName || ""}
                 className="input input-bordered w-full max-w-xs"
+                {...register("name")}
               />
             </div>
             <div className="form-control w-full max-w-xs">
@@ -49,6 +49,8 @@ const Addreview = () => {
                 // value={user?.displayName || ""}
                 className="input input-bordered w-full max-w-xs"
                 min="0"
+                max="5"
+                {...register("rating")}
               />
             </div>
             <div className="form-control w-full max-w-xs">
@@ -59,6 +61,7 @@ const Addreview = () => {
                 type="text"
                 // value={user?.displayName || ""}
                 className="input input-bordered w-full max-w-xs"
+                {...register("reviews")}
               />
             </div>
             <div className="form-control w-full max-w-xs">
@@ -68,7 +71,7 @@ const Addreview = () => {
               <input
                 placeholder="Photo URL"
                 type="text"
-                {...register("img")}
+                {...register("image")}
                 className="input input-bordered w-full max-w-xs"
               />
             </div>
