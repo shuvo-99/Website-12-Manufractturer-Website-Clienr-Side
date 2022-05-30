@@ -22,14 +22,15 @@ const Navbar = () => {
       <li>
         <Link to="/myportfolio">My Portfolio</Link>
       </li>
+      {/* <li>
+        
+      </li> */}
       <li>
         {user && (
           <>
             <Link to="/dashboard">Dashboard</Link>
           </>
         )}
-      </li>
-      <li>
         {user ? (
           <button className="btn btn-ghost" onClick={logout}>
             Sign Out
