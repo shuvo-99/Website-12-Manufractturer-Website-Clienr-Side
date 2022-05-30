@@ -22,9 +22,6 @@ const Navbar = () => {
       <li>
         <Link to="/myportfolio">My Portfolio</Link>
       </li>
-      {/* <li>
-        
-      </li> */}
       <li>
         {user && (
           <>
@@ -39,9 +36,6 @@ const Navbar = () => {
           <Link to="/signin">Login</Link>
         )}
       </li>
-      {/* <li>
-        <Link to="/signin">Login</Link>
-      </li> */}
     </>
   );
   return (
