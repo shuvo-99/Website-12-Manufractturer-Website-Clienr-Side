@@ -13,6 +13,23 @@ const Myorders = () => {
       .then((data) => setorders(data));
   }, []);
 
+  // const handleDelete = (id) => {
+  //   const proceed = window.confirm("Are you sure?");
+  //   if (proceed) {
+  //     const url = `http://localhost:5000/order`;
+  //     fetch(url, {
+  //       method: "DELETE",
+  //     })
+  //       .then((res) => res.json())
+  //       .then((data) => {
+  //         // console.log(data);
+  //         const remaining = orders.filter((orders) => orders._id !== id);
+  //         setorders(remaining);
+  //         window.location.reload(false);
+  //       });
+  //   }
+  // };
+
   return (
     <div>
       <h2>My Orders: {orders.length}</h2>
@@ -20,7 +37,7 @@ const Myorders = () => {
         <table class="table w-full">
           <thead>
             <tr>
-              <th></th>
+              <th>No.</th>
               <th>User Name</th>
               <th>Email</th>
               <th>Item Name</th>
