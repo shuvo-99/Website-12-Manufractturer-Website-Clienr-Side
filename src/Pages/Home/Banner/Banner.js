@@ -5,7 +5,7 @@ import "./Banner.css";
 const Banner = () => {
   return (
     <div>
-      <img src={banner1} class="b1" />
+      <img src={banner1} className="b1" />
     </div>
   );
 };
