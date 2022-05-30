@@ -33,14 +33,11 @@ const Tool = ({ tool, setProducts }) => {
             htmlFor="order-modal"
             // disabled={slots.length === 0}
             onClick={() => setProducts(tool)}
-            className="btn btn-sm btn-secondary text-white uppercase bg-gradient-to-r from-secondary to-primary"
+            className="btn btn-sm btn-primary text-white uppercase "
           >
             Order
           </label>
         </div>
-        {/* <div className="card-actions">
-          <button className="btn btn-primary">Order Now</button>
-        </div> */}
       </div>
     </div>
   );

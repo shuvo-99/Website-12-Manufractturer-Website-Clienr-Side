@@ -3,7 +3,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../../firebase.init";
 
 const BookingModal = ({ products, setProducts }) => {
-  const { _id, name } = products;
+  const { _id, name, minQuantity, availableQuantity } = products;
   const [user, loading, error] = useAuthState(auth);
 
   const handleBooking = (event) => {
@@ -42,6 +42,7 @@ const BookingModal = ({ products, setProducts }) => {
                                 >{slot}</option>)
                             }
                         </select> */}
+
             <input
               type="text"
               name="name"
@@ -56,10 +57,28 @@ const BookingModal = ({ products, setProducts }) => {
               value={user?.email || ""}
               className="input input-bordered w-full max-w-xs"
             />
+            {/* <label for="quantity">
+              Order amount ({minQuantity}-{availableQuantity}):
+            </label> */}
+            <input
+              type="number"
+              id="quantity"
+              name="quantity"
+              placeholder="Order Quantity"
+              className="input input-bordered w-full max-w-xs"
+              min={minQuantity}
+              max={availableQuantity}
+            />
             <input
               type="text"
               name="phone"
               placeholder="Phone Number"
+              className="input input-bordered w-full max-w-xs"
+            />
+            <input
+              type="text"
+              name="address"
+              placeholder="Address"
               className="input input-bordered w-full max-w-xs"
             />
             <input
