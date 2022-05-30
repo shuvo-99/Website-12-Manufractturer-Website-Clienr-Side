@@ -9,11 +9,18 @@ import Tools from "../Tools/Tools";
 const Home = () => {
   return (
     <div>
-      <Banner></Banner>
+      <div className="justiy-content-center">
+        <Banner></Banner>
+      </div>
+      <br />
       <Tools></Tools>
+      <br />
       <Summary></Summary>
+      <br />
       <Reviews></Reviews>
+      <br />
       <S5></S5>
+      <br />
       <S6></S6>
     </div>
   );
