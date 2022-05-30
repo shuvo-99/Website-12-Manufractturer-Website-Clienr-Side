@@ -1,6 +1,6 @@
 Website link: https://tool-manufracturer.web.app
 
-Website name: Anvo Tool and manufracturing
+Website name: Anvo Tool and Machineries
 
 Short Description: This is a tool manufracture management system. Here, user can oder items, check his oders and pay online.
 
